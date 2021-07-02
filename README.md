@@ -9,7 +9,7 @@
 $ ./gradlew clean build
 ```
 
-- Run
+- Run</br>
 use gradle wrapper
 
 ```bash
@@ -23,7 +23,7 @@ $ ./gradlew run --args='-p BTC-ETH'
 https://docs.pro.coinbase.com/#the-status-channel
 
 <h3> dependencies: </h3>
-ASCII chart: https://github.com/MitchTalmadge/ASCII-Data
+ASCII chart: https://github.com/MitchTalmadge/ASCII-Data</br>
 Websocket client: https://github.com/jetty-project
 
 <h3> Useful docs: </h3>
