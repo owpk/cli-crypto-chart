@@ -27,5 +27,5 @@ ASCII chart: https://github.com/MitchTalmadge/ASCII-Data</br>
 Websocket client: https://github.com/jetty-project
 
 <h3> useful docs: </h3>
-jetty wsclient https://www.eclipse.org/jetty/documentation/jetty-9/index.html#jetty-websocket-client-api
+jetty wsclient https://www.eclipse.org/jetty/documentation/jetty-9/index.html#jetty-websocket-client-api</br>
 coin base ws provider https://docs.pro.coinbase.com/#the-status-channel
