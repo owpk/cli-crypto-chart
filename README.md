@@ -4,7 +4,15 @@
    <img src="https://github.com/owpk/cli-crypto-chart/blob/master/docs/ccc.gif"/>
 </p>
 
-- Build
+- Build</br>
+Java 11 required</br>
+make sure you have installed java
+```bash
+java -version
+#... some useful info about java version
+```
+to install java: https://letmegooglethat.com/?q=linux+java+11+install
+
 ```bash
 $ ./gradlew clean build
 ```
