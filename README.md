@@ -1,25 +1,30 @@
 <h1> Simple command line crypto chart </h1>
+
 <p align="center">
    <img src="https://github.com/owpk//blob/master/img/g.gif"/>
 </p>
+
 - Build
 ```bash
 $ gradle clean build
 ```
+
 - Run
 use gradle wrapper
+  
 ```bash
 $ gradle run
 
 # by default used BTC-USD pair but you can pass any with option -p (--pair)
 $ gradle run --args='-p BTC-ETH'
 ```
-websocket resource:
+
+<h3> websocket resource: </h3>
 https://docs.pro.coinbase.com/#the-status-channel
 
-dependencies:
+<h3> dependencies: </h3>
 ASCII chart: https://github.com/MitchTalmadge/ASCII-Data
 Websocket client: https://github.com/jetty-project
 
-Usefull docs:
-wsclient https://www.eclipse.org/jetty/documentation/jetty-9/index.html#jetty-websocket-client-api
+<h3> Useful docs: </h3>
+jetty wsclient https://www.eclipse.org/jetty/documentation/jetty-9/index.html#jetty-websocket-client-api
