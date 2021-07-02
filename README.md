@@ -20,7 +20,7 @@ $ ./gradlew run --args='-p BTC-ETH'
 ```
 
 <h3> websocket resource: </h3>
-https://docs.pro.coinbase.com/#the-status-channel
+wss://ws-feed.pro.coinbase.com
 
 <h3> dependencies: </h3>
 ASCII chart: https://github.com/MitchTalmadge/ASCII-Data</br>
@@ -28,3 +28,4 @@ Websocket client: https://github.com/jetty-project
 
 <h3> useful docs: </h3>
 jetty wsclient https://www.eclipse.org/jetty/documentation/jetty-9/index.html#jetty-websocket-client-api
+coin base ws provider https://docs.pro.coinbase.com/#the-status-channel
