@@ -1,7 +1,7 @@
 <h1> Simple command line crypto chart </h1>
 
 <p align="center">
-   <img src="https://github.com/owpk//blob/master/img/g.gif"/>
+   <img src="https://github.com/owpk/cli-crypto-chart/blob/master/docs/ccc.gif"/>
 </p>
 
 - Build
