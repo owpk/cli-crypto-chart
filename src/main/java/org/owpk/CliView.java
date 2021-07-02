@@ -10,7 +10,7 @@ import java.util.Queue;
 public class CliView implements View<String> {
     private static final Integer Y_AXIS = 60;
     private static final Integer X_AXIS = 15;
-    private static final Integer TIMER_DELAY = 100;
+    private static final Integer TIMER_DELAY = 500;
     private final ObjectMapper objectMapper;
     private final Queue<Double> chartData;
     private EventSocket eventSocket;
