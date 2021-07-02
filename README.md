@@ -6,17 +6,17 @@
 
 - Build
 ```bash
-$ gradle clean build
+$ ./gradlew clean build
 ```
 
 - Run
 use gradle wrapper
-  
+
 ```bash
-$ gradle run
+$ ./gradlew run
 
 # by default used BTC-USD pair but you can pass any with option -p (--pair)
-$ gradle run --args='-p BTC-ETH'
+$ ./gradlew run --args='-p BTC-ETH'
 ```
 
 <h3> websocket resource: </h3>
