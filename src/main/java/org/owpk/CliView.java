@@ -15,8 +15,10 @@ public class CliView implements View<String> {
     private static final Integer X_AXIS = 60;
     private static final Integer Y_AXIS = 15;
     private static final Integer TIMER_DELAY = 500;
+    private static final Integer TEMP_DATA_THRESHOLD = 10;
     private final ObjectMapper objectMapper;
     private final Queue<Double> chartData;
+    private final Queue<Double> tempChartData;
     private EventSocket eventSocket;
     private Integer yAxis;
     private Integer xAxis;
@@ -34,6 +36,7 @@ public class CliView implements View<String> {
         this.eventSocket = new EventSocket(this, new MessageProvider());
         this.objectMapper = new ObjectMapper();
         this.chartData = new ArrayDeque<>();
+        this.tempChartData = new ArrayDeque<>();
     }
 
     @Override
@@ -48,26 +51,30 @@ public class CliView implements View<String> {
 
     @Override
     public void handleData(String data) {
-        if (timer == 0 || timer > timerDelay) {
-            try {
+        try {
+            var response = (CoinBaseResponse) objectMapper.readValue(data, CoinBaseResponse.class);
+            double val = Double.parseDouble(response.getPrice());
+            tempChartData.add(val);
+            if (tempChartData.size() > TEMP_DATA_THRESHOLD)
+                tempChartData.poll();
+            if (timer == 0 || timer > timerDelay) {
                 if (timer > 0)
                     clear();
-                render(data);
-            } catch (Throwable e) {
-                // ignore
-//                e.printStackTrace();
+                render(tempChartData.stream()
+                        .reduce(0d, Double::sum) / tempChartData.size());
+                timer = 0;
             }
-            timer = 0;
+            timer++;
+        } catch (Throwable e) {
+            // ignore
+            // e.printStackTrace();
         }
-        timer++;
     }
 
-    private void render(String data) throws IOException {
-        var response = (CoinBaseResponse) objectMapper.readValue(data, CoinBaseResponse.class);
-        double val = Double.parseDouble(response.getPrice());
+    private void render(Double data) {
         if (chartData.size() > xAxis)
             chartData.poll();
-        chartData.add(val);
+        chartData.add(data);
         double[] arr = chartData.stream().mapToDouble(Double::doubleValue).toArray();
         System.out.println(ASCIIGraph.fromSeries(arr).withNumRows(yAxis).plot());
     }
